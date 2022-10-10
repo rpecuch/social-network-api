@@ -8,9 +8,13 @@ module.exports = {
         path: 'thoughts',
         select: '-__v'
       })
+      .populate ({
+        path: 'friends',
+        select: '-__v'
+    })
       .select('-__v')
       .then((users) => res.json(users))
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => console.log(err));
   },
   //find single user
   getSingleUser(req, res) {

@@ -39,7 +39,9 @@ const generateUser = (names) => {
     for (let i=0; i<names.length; i++) {
         results.push({
             username: names[i],
-            email: `${names[i]}@gmail.com`
+            email: `${names[i]}@gmail.com`,
+            // thoughts: [...getRandomThoughts(2)],
+            // friends: [getRandomArrItem(names)]
         })
     }
     return results;
