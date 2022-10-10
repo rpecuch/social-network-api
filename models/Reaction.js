@@ -29,4 +29,6 @@ const reactionSchema = new Schema(
   }
 );
 
+//use getter method from thought model
+
 module.exports = reactionSchema;

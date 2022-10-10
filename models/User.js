@@ -26,12 +26,12 @@ const userSchema = new Schema(
         },
       ],
     //array of _id values referencing user model (self-reference)
-    friends: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'user',
-        },
-      ],
+    // friends: [
+    //     {
+    //       type: Schema.Types.ObjectId,
+    //       ref: 'user',
+    //     },
+    //   ],
   },
   {
     toJSON: {
