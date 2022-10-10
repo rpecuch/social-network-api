@@ -8,16 +8,13 @@ router.use('/users', userRoutes);
 module.exports = router;
 
 //TODO:
-    //get all users works but none of them have associated thoughts and id is showing up twice
-    //create user works but id is showing up twice
-    //single user works but id is showing up twice
+    //get all users works but none of them have associated thoughts or friends
     //delete reaction needs to be fixed
-
-    //need to add friend and remove friend
 
     //delete thought works but see if you can figure out how to remove from associated user
 
 
-//update and remove user good
+//update user, remove user, create user, single user good
+//add friend, remove friend good
 //get all thoughts, sinlge thought, new thought, update thought good
 //new reaction good
