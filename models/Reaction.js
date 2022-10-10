@@ -15,10 +15,10 @@ const reactionSchema = new Schema(
       type: String,
       required: true,
     },
-    //use a getter method to format the timestamp on query
     createdAt: {
       type: Date,
       default: Date.now,
+      get: (createdAtVal) => moment(createdAtVal).format('MMM DD YYYY [at] hh:mm a')
     },
   },
   {
@@ -28,7 +28,5 @@ const reactionSchema = new Schema(
     id: false,
   }
 );
-
-//use getter method from thought model
 
 module.exports = reactionSchema;

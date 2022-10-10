@@ -13,7 +13,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: formatDate
+      get: (createdAtVal) => moment(createdAtVal).format('MMM DD YYYY [at] hh:mm a')
     },
     username: {
         type: String,
@@ -24,23 +24,11 @@ const thoughtSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
-      // getters: true
+      getters: true
     },
     id: false
   }
 );
-
-// const date = 'Sep 16 2011 19:05:17';
-//2022-10-10T15:38:03.355Z
-
-//use a getter method to format the timestamp on query
-function formatDate(date) {
-  const formattedDate = moment(date, 'MMM DD YYYY hh:mm:ss').format('MM-DD-YYYY [at] hh:mm A');
-  // return formattedDate;
-  console.log(formattedDate);
-}
-
-// formatDate(date);
 
 // Virtual property that counts the number of reactions for the thought
 thoughtSchema.virtual('reactionCount').get(function () {
