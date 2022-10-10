@@ -13,11 +13,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      validate: {
-        validator: function(v) {
-        return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
-        }
-     }
+      match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Please enter a valid email address']
     },
     thoughts: [
         {
@@ -25,25 +21,26 @@ const userSchema = new Schema(
           ref: 'thought',
         },
       ],
-    //array of _id values referencing user model (self-reference)
-    // friends: [
-    //     {
-    //       type: Schema.Types.ObjectId,
-    //       ref: 'user',
-    //     },
-    //   ],
+    friends: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+        },
+      ],
   },
   {
     toJSON: {
       virtuals: true,
+      getters: true
     },
+    id: false
   }
 );
 
 // Virtual property that counts the number of friends for the user
-// userSchema.virtual('friendCount').get(function () {
-//     return this.friends.length;
-//   });
+userSchema.virtual('friendCount').get(function () {
+    return this.friends.length;
+  });
 
 const User = model('user', userSchema);
 
