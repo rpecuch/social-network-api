@@ -39,9 +39,7 @@ const generateUser = (names) => {
     for (let i=0; i<names.length; i++) {
         results.push({
             username: names[i],
-            email: `${names[i]}@gmail.com`,
-            // thoughts: [...getRandomThoughts(2)],
-            // friends: [getRandomArrItem(names)]
+            email: `${names[i]}@gmail.com`
         })
     }
     return results;
@@ -60,7 +58,7 @@ const getRandomThoughts = (int) => {
     return results;
   };
 
-// Create the reactions that will be added to each video
+// Create the reactions that will be added to each thought
 const getReactions = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {

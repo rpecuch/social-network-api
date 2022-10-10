@@ -62,25 +62,28 @@ module.exports = {
       });
   },
   //remove a thought
+  //TODO: fix this
   deleteThought(req, res) {
     Thought.findOneAndRemove({ _id: req.params.thoughtId })
-      .then((thought) =>
-        !thought
-          ? res.status(404).json({ message: 'No thought with this id!' })
-          : res.json({ message: 'Thought successfully deleted!' })
-          // User.findOneAndUpdate(
-          //     { thoughts: req.params.thoughtId },
-          //     { $pull: { thoughts: req.params.thoughtId } },
-          //     { new: true }
-          //   )
+      .then((thought) => {
+        if(!thought) {
+          res.status(404).json({ message: 'No thought with this id!' });
+        }
+        else {
+          User.findOneAndUpdate(
+            { thoughts: req.params.thoughtId },
+            { $pull: { thoughts: req.params.thoughtId } },
+            { new: true }
+          )
+        }
+        })
+        .then((user) =>
+        !user
+          ? res.status(404).json({
+              message: 'Thought deleted, but no associated user found',
+            })
+          : res.json({ message: 'Thought successfully deleted' })
       )
-      // .then((user) =>
-      //   !user
-      //     ? res
-      //         .status(404)
-      //         .json({ message: 'Thought deleted but no associated user!' })
-      //     : res.json({ message: 'Thought successfully deleted!' })
-      // )
       .catch((err) => res.status(500).json(err));
   },
   // Add a reaction to a thought
