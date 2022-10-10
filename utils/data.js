@@ -33,30 +33,9 @@ const possibleReactions = [
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-//generate user data
-const generateUser = (names) => {
-    let results = [];
-    for (let i=0; i<names.length; i++) {
-        results.push({
-            username: names[i],
-            email: `${names[i]}@gmail.com`
-        })
-    }
-    return results;
-}
+const getRandomThought = () => getRandomArrItem(thoughts);
 
-// Function to generate random thoughts to add to database (includes reactions)
-const getRandomThoughts = (int) => {
-    let results = [];
-    for (let i = 0; i < int; i++) {
-      results.push({
-        thoughtText: getRandomArrItem(thoughts),
-        username: getRandomArrItem(names),
-        reactions: [...getReactions(2)],
-      });
-    }
-    return results;
-  };
+const getRandomName = () => getRandomArrItem(names);
 
 // Create the reactions that will be added to each thought
 const getReactions = (int) => {
@@ -64,11 +43,11 @@ const getReactions = (int) => {
     for (let i = 0; i < int; i++) {
       results.push({
         reactionBody: getRandomArrItem(possibleReactions),
-        username: getRandomArrItem(names),
+        username: getRandomName(),
       });
     }
     return results;
   };
 
-  module.exports = { names, generateUser, getRandomThoughts };
+  module.exports = { getRandomThought, getRandomName, getReactions };
 
