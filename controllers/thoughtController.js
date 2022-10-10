@@ -18,11 +18,11 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // create a new thought
-  createVideo(req, res) {
+  createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
         return User.findOneAndUpdate(
-          { _id: req.body.userId },
+          { username: req.body.username },
           { $addToSet: { thoughts: thought._id } },
           { new: true }
         );
