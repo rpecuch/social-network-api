@@ -31,6 +31,7 @@ const thoughtSchema = new Schema(
 );
 
 // const date = 'Sep 16 2011 19:05:17';
+//2022-10-10T15:38:03.355Z
 
 //use a getter method to format the timestamp on query
 function formatDate(date) {

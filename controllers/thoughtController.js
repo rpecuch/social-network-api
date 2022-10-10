@@ -62,19 +62,20 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: 'No thought with this id!' })
-          : User.findOneAndUpdate(
-              { thoughts: req.params.thoughtId },
-              { $pull: { thoughts: req.params.thoughtId } },
-              { new: true }
-            )
-      )
-      .then((user) =>
-        !user
-          ? res
-              .status(404)
-              .json({ message: 'Thought created but no user with this id!' })
           : res.json({ message: 'Thought successfully deleted!' })
+          // User.findOneAndUpdate(
+          //     { thoughts: req.params.thoughtId },
+          //     { $pull: { thoughts: req.params.thoughtId } },
+          //     { new: true }
+          //   )
       )
+      // .then((user) =>
+      //   !user
+      //     ? res
+      //         .status(404)
+      //         .json({ message: 'Thought deleted but no associated user!' })
+      //     : res.json({ message: 'Thought successfully deleted!' })
+      // )
       .catch((err) => res.status(500).json(err));
   },
   // Add a reaction to a thought
@@ -93,7 +94,7 @@ module.exports = {
   },
   // Remove thought reaction
   removeThoughtReaction(req, res) {
-    Video.findOneAndUpdate(
+    Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
