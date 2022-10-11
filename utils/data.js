@@ -32,9 +32,9 @@ const possibleReactions = [
 
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
+// get a random thought
 const getRandomThought = () => getRandomArrItem(thoughts);
-
+// get a randome name
 const getRandomName = () => getRandomArrItem(names);
 
 // Create the reactions that will be added to each thought

@@ -6,10 +6,10 @@ connection.on('error', (err) => err);
 
 connection.once('open', async () => {
   console.log('connected');
-  //drop existing thoughts and users
+  // drop existing thoughts and users
   await Thought.deleteMany({});
   await User.deleteMany({});
-
+  // create array of thoughts to add to database
   const thoughts = [];
   for (let i=0; i<3; i++) {
     const reactions = getReactions(2);
@@ -23,9 +23,9 @@ connection.once('open', async () => {
     })
   }
 
-  // await User.collection.insertMany(users);
+  // seed database with thought data
   await Thought.collection.insertMany(thoughts);
-
+  // seed database with user data
   await User.collection.insertOne({
     username: 'rpecuch',
     email: 'rpecuch@comcast.net'

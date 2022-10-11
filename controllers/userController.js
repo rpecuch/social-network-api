@@ -1,7 +1,7 @@
 const User = require('../models/User');
 
 module.exports = {
-    //find all users
+  //find all users
   getUsers(req, res) {
     User.find({})
       .then((users) => res.json(users))
