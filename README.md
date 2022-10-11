@@ -52,7 +52,7 @@ In addition to these packages, the Insomnia application is needed on the user's 
   
 Now that the application is up and running, the user can use Insomnia to view data from, add data to, modify data from, or delete data from the database. 
 
-insert demo video
+[Click here for a demonstration video.](https://drive.google.com/file/d/17ZiS_yYyw-0rKjcU9Sc0vl-hjvFAd6MH/view)
 
 
   ## License
