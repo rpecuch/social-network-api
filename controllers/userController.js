@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Thought = require('../models/Thought');
 
 module.exports = {
   //find all users
@@ -41,14 +42,24 @@ module.exports = {
       });
   },
     //remove a user
+    //TODO: test this
     removeUser(req, res) {
       User.findOneAndRemove({ _id: req.params.userId })
-        .then((user) =>
-          !user
-            ? res.status(404).json({ message: 'No user with this id!' })
-            : res.json({ message: 'User successfully deleted!' })
+        .then((user) => {
+          if (!user) {
+            res.status(404).json({ message: 'No user with this id!' })
+          }
+          else {
+            Thought.deleteMany ({username: user.username});
+            res.json({ message: 'User and associated thoughts successfully deleted!' });
+          }
+        }
+          // !user
+          //   ? res.status(404).json({ message: 'No user with this id!' })
+          //   : res.json({ message: 'User successfully deleted!' })
         )
-        .catch((err) => res.status(500).json(err));
+        // .catch((err) => res.status(500).json(err));
+        .catch(err => console.log(err))
     },
   //add a friend
   addFriend(req, res) {
