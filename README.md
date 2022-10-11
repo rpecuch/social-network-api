@@ -4,7 +4,7 @@
 
   ## Description
 
-The purpose of this project was to utilize MongoDB to build the back-end of a social networking application to allow database interaction. This application utilizes GET, POST, PUT, and DELETE methods to allow viewing, adding to, modifying, and deleting data from a social network database. During the development process, I became comfortable utilizing MongoDB.
+The purpose of this project was to utilize MongoDB to build the back-end of a social networking application to allow database interaction. This application utilizes GET, POST, PUT, and DELETE methods to allow viewing, adding to, modifying, and deleting data from a social network database. During the development process, I became comfortable utilizing MongoDB syntax and implementing it in a JavaScript application.
 
   ## Table of Contents
 
