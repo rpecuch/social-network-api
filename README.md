@@ -2,9 +2,14 @@
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+  ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+  ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+  ![Node](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+  ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
   ## Description
 
-The purpose of this project was to utilize MongoDB to build the back-end of a social networking application to allow database interaction. This application utilizes GET, POST, PUT, and DELETE methods to allow viewing, adding to, modifying, and deleting data from a social network database. This allows the retrieval, creation, editing, and removal of user, thought, and reactiond data. During the development process, I became comfortable utilizing MongoDB syntax and implementing it in a JavaScript application.
+The purpose of this project was to utilize MongoDB to build the back-end of a social networking application to allow database interaction. This application utilizes GET, POST, PUT, and DELETE methods to allow viewing, adding to, modifying, and deleting data from a social network database. This allows the retrieval, creation, editing, and removal of user, thought, and reaction data. During the development process, I became comfortable utilizing MongoDB syntax and implementing Mongoose in a JavaScript application.
 
   ## Table of Contents
 
