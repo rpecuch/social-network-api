@@ -1,4 +1,5 @@
 const router = require('express').Router();
+// import controllers
 const {
   getUsers,
   getSingleUser,
