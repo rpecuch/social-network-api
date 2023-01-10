@@ -1,4 +1,5 @@
 const connection = require('../config/connection');
+//import models and seed data
 const { User, Thought } = require('../models');
 const { getRandomThought, getRandomName, getReactions } = require('./data');
 
@@ -15,7 +16,7 @@ connection.once('open', async () => {
     const reactions = getReactions(2);
     const thoughtText = getRandomThought();
     const username = getRandomName();
-
+    //thought contains text, username, and reactions
     thoughts.push({
       thoughtText,
       username,

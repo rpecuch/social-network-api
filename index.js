@@ -1,4 +1,5 @@
 const express = require('express');
+//import database connection and api routes
 const db = require('./config/connection');
 const routes = require('./routes');
 
